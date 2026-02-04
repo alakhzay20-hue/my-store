@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر علاء الخزاعي | الفخامة الرقمية 2030</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-midnight': '#050714',
+              'brand-slate': '#1e293b',
+              'brand-primary': '#32CD32',
+              'brand-primary-light': '#98FB98',
+              'brand-teal': '#2dd4bf',
+              'surface-light': '#fdfdfd',
+            },
+            fontFamily: {
+              plex: ['IBM Plex Sans Arabic', 'sans-serif'],
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+              'float': 'float 4s ease-in-out infinite',
+              'shimmer': 'shimmer 2s infinite linear',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(40px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              shimmer: {
+                '0%': { backgroundPosition: '-1000px 0' },
+                '100%': { backgroundPosition: '1000px 0' },
+              },
+              cartBounce: {
+                '0%, 100%': { transform: 'scale(1)' },
+                '50%': { transform: 'scale(1.2)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "@google/genai": "https://esm.sh/@google/genai@^1.39.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+<style>
+  * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  
+  body {
+    background-color: #fdfdfd;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); }
+  .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.4); }
+  .accent-gradient { background: linear-gradient(135deg, #32CD32 0%, #10b981 100%); }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #f8fafc; }
+  ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: #32CD32; }
+
+  /* Premium Hover Interactions */
+  .hover-lift {
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hover-lift:hover {
+    transform: translateY(-20px) scale(1.02);
+    box-shadow: 0 50px 100px -20px rgba(0,0,0,0.12), 0 30px 60px -30px rgba(50,205,50,0.1);
+  }
+
+  .img-zoom {
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .group:hover .img-zoom {
+    transform: scale(1.18);
+  }
+
+  /* Masonry-like CSS Grid */
+  .grid-dynamic {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-auto-rows: 20px; /* Base row height for finer control */
+    gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .grid-item-featured {
+      grid-column: span 2;
+      grid-row: span 25; /* roughly double height */
+    }
+    .grid-item-tall {
+      grid-row: span 22;
+    }
+    .grid-item-standard {
+      grid-row: span 18;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .grid-dynamic {
+      grid-auto-rows: auto;
+    }
+  }
+
+  .tap-active:active { transform: scale(0.95); transition: 0.1s; }
+
+  /* Bounce effect for cart */
+  .cart-bounce {
+    animation: cartBounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+</style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="font-plex text-brand-midnight">
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
